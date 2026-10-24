@@ -1,44 +1,26 @@
-# Nassau Candy Factory Reallocation & Shipping Optimization Dashboard
+# Nassau Candy: Factory Reallocation Dashboard
 
-A beginner-friendly Streamlit dashboard for your Nassau Candy project. It reads the CSV exports from your Colab/Python analysis.
+An interactive Streamlit dashboard for the Factory Reallocation & Shipping Optimization project.
+It rebuilds your notebook's analysis from the CSV files, so every number comes from your data.
 
-## Files expected
+## Run it
 
-Put these CSV files in the same folder as `app.py`:
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-- `factory_orders.csv` (required): order-level data, including the `Factory` column if available.
-- `priority_scenarios.csv` (optional): product/factory reallocation ranking.
-- `distance_analysis.csv` (optional): order-level current and nearest-factory distances.
+## Data
 
-You can also upload each CSV from the dashboard sidebar, so you do not have to rename or move files.
+Your project CSV files are already inside the `data` folder, so the dashboard opens straight away with no upload step.
 
-## Run in VS Code on Windows
+## What is inside
 
-1. Download and extract the ZIP.
-2. Open the extracted folder in VS Code: **File → Open Folder**.
-3. Open **Terminal → New Terminal**.
-4. Install dependencies:
+- **Overview**: sales, profit, units, orders, trend, ship modes, product table
+- **Factory network**: map of destinations and factories, distance now vs nearest factory
+- **Reallocation scenarios**: ranked scenarios with adjustable weights, drill-down map, CSV download
+- **What-if simulator**: choose which factories may make a product and see how the average trip changes
+- **Demand clusters**: K-Means groups with silhouette chart
+- **Data quality and method**: the ship-date problem, data checks, limits of the analysis
 
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
-
-5. Start the dashboard:
-
-   ```powershell
-   python -m streamlit run app.py
-   ```
-
-6. Open the local URL shown in the terminal, usually `http://localhost:8501`.
-
-If `python` is not recognized, install Python from python.org and select **Add Python to PATH** during installation. Restart VS Code after installing.
-
-## CSVs from Google Colab
-
-In Colab, use the left Files panel to download each CSV to your computer. Then either copy them beside `app.py` or upload them using the Streamlit dashboard sidebar.
-
-## Important interpretation notes
-
-- Check the date-quality tab before using shipping lead-time results. Earlier analysis found suspicious ship dates far beyond order dates.
-- Distances are straight-line estimates, not actual road or carrier routes.
-- Scenario scores are prioritization aids, not guaranteed savings or final factory decisions. Confirm factory capacity, product eligibility, stock, service levels, and actual transport costs before implementing changes.
+All filters in the sidebar apply to every tab.
