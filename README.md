@@ -21,6 +21,7 @@ Your project CSV files are already inside the `data` folder, so the dashboard op
 - **Reallocation scenarios**: ranked scenarios with adjustable weights, drill-down map, CSV download
 - **What-if simulator**: choose which factories may make a product and see how the average trip changes
 - **Demand clusters**: K-Means groups with silhouette chart
-- **Data quality and method**: the ship-date problem, data checks, limits of the analysis
+- **Recommendations**: top moves to look at, where the avoidable distance is, a suggested plan, downloadable list
+- **Data quality**: the ship-date problem, data checks, method and limits
 
 All filters in the sidebar apply to every tab.
